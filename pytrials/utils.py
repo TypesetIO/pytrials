@@ -28,7 +28,7 @@ def csv_handler(url):
     """Returns request in CSV (list of records) format"""
 
     response = request_ct(url)
-    decoded_content = response.content.decode("utf-8")
+    decoded_content = response.read().decode("utf-8")
 
     cr = csv.reader(decoded_content.splitlines(), delimiter=",")
     records = list(cr)
