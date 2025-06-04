@@ -9,7 +9,7 @@ def request_ct(url):
     """Performs a get request that provides a (somewhat) useful error message."""
     try:
         import urllib.request
-        response = urllib.request.urlopen(url)
+        response = urllib.request.urlopen(url.replace(" ", "%20"))
         return response
     except urllib.error.HTTPError as ex:
         raise ex
